@@ -1,17 +1,12 @@
-import path from "path"
-import react from "@vitejs/plugin-react"
-import { defineConfig } from "vite"
+// vite.config.js
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
-  base: "./", // Atau sesuai kebutuhan
-  build: {
-    outDir: "dist",
-    sourcemap: true, // Jika Anda ingin mengaktifkan sourcemaps
-  },
-})
+  server: {
+    mimeTypes: {
+      'js': 'application/javascript',
+    }
+  }
+});
