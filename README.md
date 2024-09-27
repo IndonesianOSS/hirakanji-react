@@ -15,7 +15,7 @@ To set up the project locally, follow these steps:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/hirakanji.git
+   git clone https://github.com/indonesianoss/hirakanji-react.git
    cd hirakanji
 
 2. **Install Dependencies**:

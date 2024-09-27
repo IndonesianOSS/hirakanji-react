@@ -1,13 +1,13 @@
   import React, { useState, useRef } from 'react';
   import Swal from 'sweetalert2';
   import CategoryForm from './categoryForm';
-  import fullHiraganaChart from './hiraganachart';
+  import fullHiraganaChart from '../assets/jpeg.jpg';
   import Modal from './modal';
 
   export default function HirakanjiType() {
     const [showModal, setShowModal] = useState(false);
     const [analysisResult, setAnalysisResult] = useState('');
-    const [romajiText, setRomajiText] = useState("IndonesiaOSS");
+    const [romajiText, setRomajiText] = useState("Hirakanji");
     const [kanaInput, setKanaInput] = useState('');
     const startedSectionRef = useRef(null); // Create a ref for the started section
 
@@ -122,29 +122,45 @@
     return (
       <>
       {/* gw bingung her bagian image background ini anjg */}
-        <section
+      <section
   className="bg-center bg-cover bg-no-repeat min-h-screen flex items-center bg-gray-500"
-  style={{ backgroundImage: "url(fullHiraganaChart)" }}
+  style={{ backgroundImage: `url(${fullHiraganaChart})` }} // Sesuaikan path gambar
 >
-          <div className="px-4 mx-auto max-w-screen-xl text-center py-24">
-            <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
-              Welcome to Hirakanji Type
-            </h1>
-            <p className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
-              Platform latihan mengetik huruf hiragana, katakana kanji dan pastinya sudah terintegrasi dengan Gemini AI untuk meningkatkan penguasaan hiragana, katakana dan kanji.
-            </p>
-            <p className='mb-4 text-lg font-bold text-gray'>Note: Kanji sedang dalam perbaikan!</p>
-            <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
-              {/* This /button will scroll to the started section */}
-              <button
-                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg"
-                onClick={handleGetStartedClick}
-              >
-                Get started
-              </button>
-            </div>
-          </div>
-        </section>
+  <div className="px-4 mx-auto max-w-screen-xl text-center py-24">
+    <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl"
+        style={{ 
+          textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)', // Shadow yang lebih jelas
+          letterSpacing: '1px'  // Sedikit spasi antar huruf
+        }}>
+      Welcome to Hirakanji Type
+    </h1>
+    <p className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48"
+       style={{ 
+         textShadow: '1px 1px 3px rgba(0, 0, 0, 0.7)' // Shadow untuk teks deskripsi
+       }}>
+      Platform latihan mengetik huruf hiragana, katakana kanji dan pastinya sudah terintegrasi dengan Gemini AI untuk meningkatkan penguasaan hiragana, katakana dan kanji.
+    </p>
+    <p className="mb-4 text-lg font-bold text-gray-300"
+       style={{ 
+         textShadow: '1px 1px 3px rgba(0, 0, 0, 0.7)'  // Shadow untuk note
+       }}>
+      Note: Input hiragana sesuai kategori!
+    </p>
+    <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
+      <button
+        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg"
+        onClick={handleGetStartedClick}
+        style={{
+          boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.3)',  // Tambahkan shadow pada tombol
+          textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)' // Shadow pada teks tombol
+        }}
+      >
+        Get started
+      </button>
+    </div>
+  </div>
+</section>
+
 
         <div ref={startedSectionRef} id="started" className="min-h-screen flex items-center justify-center py-20">
           <div className="w-full max-w-lg mx-auto bg-white shadow-md rounded-lg">
